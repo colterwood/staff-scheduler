@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -58,7 +58,7 @@ export default function AcceptForm({
         </p>
         <button
           onClick={() => router.push("/login")}
-          className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded w-full"
+          className="bg-[#E5003B] hover:bg-[#C5002E] text-white px-4 py-2 rounded w-full"
         >
           Go to Login
         </button>
@@ -85,7 +85,7 @@ export default function AcceptForm({
           value={fullName}
           onChange={(e) => setFullName(e.target.value)}
           placeholder="Jane Smith"
-          className="border rounded px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="border rounded px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-[#E5003B]"
         />
       </div>
 
@@ -97,7 +97,7 @@ export default function AcceptForm({
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="At least 8 characters"
-          className="border rounded px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="border rounded px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-[#E5003B]"
         />
       </div>
 
@@ -111,7 +111,7 @@ export default function AcceptForm({
           value={confirm}
           onChange={(e) => setConfirm(e.target.value)}
           placeholder="Repeat password"
-          className="border rounded px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="border rounded px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-[#E5003B]"
         />
       </div>
 
@@ -120,7 +120,7 @@ export default function AcceptForm({
       <button
         type="submit"
         disabled={loading}
-        className="bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white px-4 py-2 rounded w-full"
+        className="bg-[#E5003B] hover:bg-[#C5002E] disabled:opacity-50 text-white px-4 py-2 rounded w-full"
       >
         {loading ? "Creating account..." : "Create Account"}
       </button>

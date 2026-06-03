@@ -30,7 +30,7 @@ export default function AdminNavBar() {
           href={link.href}
           className={
             pathname === link.href
-              ? "text-blue-600"
+              ? "text-[#E5003B]"
               : "text-gray-600 hover:text-gray-900"
           }
         >

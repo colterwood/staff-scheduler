@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -30,7 +30,7 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="min-h-screen flex items-center justify-center bg-[#FBD9DC]">
       <form
         onSubmit={handleLogin}
         className="bg-white p-8 rounded-lg shadow-md max-w-sm w-full space-y-4"
@@ -47,7 +47,7 @@ export default function LoginPage() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="you@example.com"
-            className="border rounded px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="border rounded px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-[#E5003B]"
           />
         </div>
 
@@ -59,14 +59,14 @@ export default function LoginPage() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="••••••••"
-            className="border rounded px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="border rounded px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-[#E5003B]"
           />
         </div>
 
         <button
           type="submit"
           disabled={loading}
-          className="bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white py-2 px-4 rounded w-full"
+          className="bg-[#E5003B] hover:bg-[#C5002E] disabled:opacity-50 text-white py-2 px-4 rounded w-full"
         >
           {loading ? "Signing in…" : "Sign In"}
         </button>

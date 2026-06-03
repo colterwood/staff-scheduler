@@ -1,4 +1,4 @@
-import { getInvitation } from "./actions";
+﻿import { getInvitation } from "./actions";
 import AcceptForm from "./AcceptForm";
 
 export default async function InvitePage({
@@ -11,11 +11,11 @@ export default async function InvitePage({
 
   if ("error" in result) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-100">
+      <div className="min-h-screen flex items-center justify-center bg-[#FBD9DC]">
         <div className="bg-white p-8 rounded-lg shadow-md max-w-sm w-full text-center space-y-4">
           <h1 className="text-xl font-semibold text-red-600">Invalid Invitation</h1>
           <p className="text-gray-600">{result.error}</p>
-          <a href="/login" className="text-blue-600 hover:underline text-sm">
+          <a href="/login" className="text-[#E5003B] hover:underline text-sm">
             Back to login
           </a>
         </div>

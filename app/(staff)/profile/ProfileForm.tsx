@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 
@@ -50,7 +50,7 @@ export default function ProfileForm({ fullName, email, phone: initialPhone, noti
           <label className="text-lg font-semibold w-32">Email</label>
           <input
             type="email"
-            className="px-4 py-2 border rounded w-[260px] focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="px-4 py-2 border rounded w-[260px] focus:outline-none focus:ring-2 focus:ring-[#E5003B]"
             value={emailVal}
             onChange={(e) => setEmailVal(e.target.value)}
           />
@@ -60,7 +60,7 @@ export default function ProfileForm({ fullName, email, phone: initialPhone, noti
           <label className="text-lg font-semibold w-32">Phone</label>
           <input
             type="text"
-            className="px-4 py-2 border rounded w-[200px] focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="px-4 py-2 border rounded w-[200px] focus:outline-none focus:ring-2 focus:ring-[#E5003B]"
             value={phoneVal}
             placeholder="(555) 555-5555"
             onChange={(e) => setPhoneVal(e.target.value.replace(/\D/g, ""))}
@@ -73,7 +73,7 @@ export default function ProfileForm({ fullName, email, phone: initialPhone, noti
           <select
             value={notification}
             onChange={(e) => setNotification(e.target.value as NotificationPref)}
-            className="px-4 py-2 border rounded w-[180px] bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="px-4 py-2 border rounded w-[180px] bg-white focus:outline-none focus:ring-2 focus:ring-[#E5003B]"
           >
             <option value="email">Email</option>
             <option value="text">Text</option>

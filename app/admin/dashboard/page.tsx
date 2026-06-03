@@ -39,7 +39,7 @@ export default async function AdminDashboardPage() {
           <p className="text-3xl font-bold">{staffCount ?? "â€”"}</p>
           <Link
             href="/admin/staff"
-            className="text-sm text-blue-600 hover:underline"
+            className="text-sm text-[#E5003B] hover:underline"
           >
             Manage staff â†’
           </Link>
@@ -50,7 +50,7 @@ export default async function AdminDashboardPage() {
           <p className="text-3xl font-bold">{pendingTimeOff ?? "â€”"}</p>
           <Link
             href="/admin/time-off"
-            className="text-sm text-blue-600 hover:underline"
+            className="text-sm text-[#E5003B] hover:underline"
           >
             Review requests â†’
           </Link>
@@ -61,7 +61,7 @@ export default async function AdminDashboardPage() {
           <p className="text-3xl font-bold">â€”</p>
           <Link
             href="/admin/schedule"
-            className="text-sm text-blue-600 hover:underline"
+            className="text-sm text-[#E5003B] hover:underline"
           >
             Build schedule â†’
           </Link>

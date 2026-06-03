@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect } from "react";
 import {
@@ -134,7 +134,7 @@ export default function AvailabilityPage() {
             className={`p-3 rounded border text-center font-medium ${
               selectedMonth?.getMonth() === month.getMonth() &&
               selectedMonth?.getFullYear() === month.getFullYear()
-                ? "bg-blue-600 text-white border-blue-700"
+                ? "bg-[#E5003B] text-white border-[#C5002E]"
                 : "bg-white text-gray-800 border-gray-300 hover:bg-gray-100"
             }`}
           >
@@ -153,7 +153,7 @@ export default function AvailabilityPage() {
               className={`p-3 rounded border text-center text-sm font-medium ${
                 selectedWeekStart &&
                 isSameWeek(selectedWeekStart, start, { weekStartsOn: 0 })
-                  ? "bg-blue-600 text-white border-blue-700"
+                  ? "bg-[#E5003B] text-white border-[#C5002E]"
                   : "bg-white text-gray-800 border-gray-300 hover:bg-gray-100"
               }`}
             >
@@ -193,7 +193,7 @@ export default function AvailabilityPage() {
               <div className="flex justify-center gap-2 mb-3">
                 <button
                   onClick={() => selectAllDay(day)}
-                  className="px-2 py-1 bg-blue-500 hover:bg-blue-600 text-white text-xs rounded"
+                  className="px-2 py-1 bg-[#E5003B] hover:bg-[#E5003B] text-white text-xs rounded"
                 >
                   All
                 </button>

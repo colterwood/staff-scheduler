@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { createInvitation } from "./actions";
@@ -43,7 +43,7 @@ export default function InviteForm() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="staff@example.com"
-            className="border rounded px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="border rounded px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-[#E5003B]"
           />
         </div>
 
@@ -52,7 +52,7 @@ export default function InviteForm() {
           <select
             value={role}
             onChange={(e) => setRole(e.target.value as "staff" | "admin")}
-            className="border rounded px-3 py-2 w-full bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="border rounded px-3 py-2 w-full bg-white focus:outline-none focus:ring-2 focus:ring-[#E5003B]"
           >
             <option value="staff">Staff</option>
             <option value="admin">Admin</option>
@@ -64,7 +64,7 @@ export default function InviteForm() {
         <button
           type="submit"
           disabled={loading}
-          className="bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white px-4 py-2 rounded w-full"
+          className="bg-[#E5003B] hover:bg-[#C5002E] disabled:opacity-50 text-white px-4 py-2 rounded w-full"
         >
           {loading ? "Generating..." : "Generate Invite Link"}
         </button>
