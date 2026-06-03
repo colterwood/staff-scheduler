@@ -1,4 +1,4 @@
-import { createClient } from "@/app/utils/supabase/server";
+﻿import { createClient } from "@/app/utils/supabase/server";
 
 export default async function DashboardPage() {
   const supabase = await createClient();
@@ -19,9 +19,10 @@ export default async function DashboardPage() {
       <h1 className="text-2xl font-semibold">
         Welcome{firstName ? `, ${firstName}` : ""}!
       </h1>
-      <p className="text-gray-500">
+      <p className="text-gray-700">
         Your upcoming shifts and notifications will appear here.
       </p>
     </div>
   );
 }
+

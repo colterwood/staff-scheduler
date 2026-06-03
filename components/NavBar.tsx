@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
@@ -39,10 +39,11 @@ export default function NavBar() {
       ))}
       <button
         onClick={handleLogout}
-        className="ml-auto text-gray-400 hover:text-gray-700"
+        className="ml-auto text-gray-600 hover:text-gray-700"
       >
         Log out
       </button>
     </nav>
   );
 }
+

@@ -1,4 +1,4 @@
-import { createClient } from "@/app/utils/supabase/server";
+﻿import { createClient } from "@/app/utils/supabase/server";
 import { createAdminClient } from "@/app/utils/supabase/admin";
 import InviteForm from "./InviteForm";
 
@@ -33,7 +33,7 @@ export default async function AdminStaffPage() {
       <section>
         <h2 className="text-lg font-semibold mb-3">Active Staff</h2>
         {!staff?.length ? (
-          <p className="text-gray-500 text-sm">No staff members yet. Invite someone below.</p>
+          <p className="text-gray-700 text-sm">No staff members yet. Invite someone below.</p>
         ) : (
           <div className="border rounded-lg overflow-hidden">
             <table className="w-full text-sm">
@@ -56,7 +56,7 @@ export default async function AdminStaffPage() {
                         className={`inline-flex items-center px-2 py-0.5 rounded text-xs font-medium ${
                           member.is_active
                             ? "bg-green-100 text-green-700"
-                            : "bg-gray-100 text-gray-500"
+                            : "bg-gray-100 text-gray-700"
                         }`}
                       >
                         {member.is_active ? "Active" : "Inactive"}
@@ -88,7 +88,7 @@ export default async function AdminStaffPage() {
                   <tr key={invite.id} className="hover:bg-gray-50">
                     <td className="px-4 py-3">{invite.email}</td>
                     <td className="px-4 py-3 capitalize">{invite.role}</td>
-                    <td className="px-4 py-3 text-gray-500">
+                    <td className="px-4 py-3 text-gray-700">
                       {new Date(invite.expires_at).toLocaleDateString()}
                     </td>
                   </tr>
@@ -107,3 +107,4 @@ export default async function AdminStaffPage() {
     </div>
   );
 }
+

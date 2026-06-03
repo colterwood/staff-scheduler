@@ -1,4 +1,4 @@
-import { createClient } from "@/app/utils/supabase/server";
+﻿import { createClient } from "@/app/utils/supabase/server";
 import Link from "next/link";
 
 export default async function AdminDashboardPage() {
@@ -35,38 +35,39 @@ export default async function AdminDashboardPage() {
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <div className="bg-white rounded-lg border border-gray-200 p-5 space-y-2">
-          <p className="text-sm text-gray-500">Active Staff</p>
-          <p className="text-3xl font-bold">{staffCount ?? "—"}</p>
+          <p className="text-sm text-gray-700">Active Staff</p>
+          <p className="text-3xl font-bold">{staffCount ?? "â€”"}</p>
           <Link
             href="/admin/staff"
             className="text-sm text-blue-600 hover:underline"
           >
-            Manage staff →
+            Manage staff â†’
           </Link>
         </div>
 
         <div className="bg-white rounded-lg border border-gray-200 p-5 space-y-2">
-          <p className="text-sm text-gray-500">Pending Time Off</p>
-          <p className="text-3xl font-bold">{pendingTimeOff ?? "—"}</p>
+          <p className="text-sm text-gray-700">Pending Time Off</p>
+          <p className="text-3xl font-bold">{pendingTimeOff ?? "â€”"}</p>
           <Link
             href="/admin/time-off"
             className="text-sm text-blue-600 hover:underline"
           >
-            Review requests →
+            Review requests â†’
           </Link>
         </div>
 
         <div className="bg-white rounded-lg border border-gray-200 p-5 space-y-2">
-          <p className="text-sm text-gray-500">Next Schedule</p>
-          <p className="text-3xl font-bold">—</p>
+          <p className="text-sm text-gray-700">Next Schedule</p>
+          <p className="text-3xl font-bold">â€”</p>
           <Link
             href="/admin/schedule"
             className="text-sm text-blue-600 hover:underline"
           >
-            Build schedule →
+            Build schedule â†’
           </Link>
         </div>
       </div>
     </div>
   );
 }
+
