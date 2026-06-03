@@ -23,7 +23,7 @@ export default async function ProfilePage() {
   const { data: weeklyAvailability } = profile
     ? await supabase
         .from("weekly_availability")
-        .select("day_of_week, available_from, available_to")
+        .select("day_of_week, slots")
         .eq("staff_id", profile.id)
     : { data: [] };
 

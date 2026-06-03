@@ -48,7 +48,11 @@ export default async function AdminStaffPage() {
               <tbody className="divide-y">
                 {staff.map((member) => (
                   <tr key={member.id} className="hover:bg-gray-50">
-                    <td className="px-4 py-3 font-medium">{member.full_name}</td>
+                    <td className="px-4 py-3 font-medium">
+                      <a href={`/admin/staff/${member.id}`} className="text-[#E5003B] hover:underline">
+                        {member.full_name}
+                      </a>
+                    </td>
                     <td className="px-4 py-3 text-gray-600">{member.email}</td>
                     <td className="px-4 py-3 text-gray-600">{member.priority_rank}</td>
                     <td className="px-4 py-3">

@@ -3,11 +3,12 @@
 import { createClient } from "@/app/utils/supabase/server";
 import { revalidatePath } from "next/cache";
 
+type TimeSlot = { from: string; to: string };
+
 type DayAvailability = {
   dayOfWeek: number;
   available: boolean;
-  from: string;
-  to: string;
+  slots: TimeSlot[];
 };
 
 export async function saveProfile(data: {
@@ -17,23 +18,15 @@ export async function saveProfile(data: {
   weeklyAvailability: DayAvailability[];
 }) {
   const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  const { data: { user } } = await supabase.auth.getUser();
   if (!user) return { error: "Not authenticated." };
 
   const notify_email = data.notification === "email" || data.notification === "both";
   const notify_sms = data.notification === "text" || data.notification === "both";
 
-  // Update contact info
   const { data: profile, error: profileError } = await supabase
     .from("staff_profiles")
-    .update({
-      email: data.email,
-      phone: data.phone || null,
-      notify_email,
-      notify_sms,
-    })
+    .update({ email: data.email, phone: data.phone || null, notify_email, notify_sms })
     .eq("user_id", user.id)
     .select("id")
     .single();
@@ -41,23 +34,20 @@ export async function saveProfile(data: {
   if (profileError) return { error: profileError.message };
 
   // Replace weekly availability
-  await supabase
-    .from("weekly_availability")
-    .delete()
-    .eq("staff_id", profile.id);
+  await supabase.from("weekly_availability").delete().eq("staff_id", profile.id);
 
-  const availableDays = data.weeklyAvailability.filter((d) => d.available);
+  const availableDays = data.weeklyAvailability.filter(
+    (d) => d.available && d.slots.length > 0
+  );
+
   if (availableDays.length > 0) {
-    const { error: availError } = await supabase
-      .from("weekly_availability")
-      .insert(
-        availableDays.map((d) => ({
-          staff_id: profile.id,
-          day_of_week: d.dayOfWeek,
-          available_from: d.from,
-          available_to: d.to,
-        }))
-      );
+    const { error: availError } = await supabase.from("weekly_availability").insert(
+      availableDays.map((d) => ({
+        staff_id: profile.id,
+        day_of_week: d.dayOfWeek,
+        slots: d.slots.filter((s) => s.from && s.to),
+      }))
+    );
     if (availError) return { error: availError.message };
   }
 
