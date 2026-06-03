@@ -1,4 +1,4 @@
-﻿import { createClient } from "@/app/utils/supabase/server";
+import { createClient } from "@/app/utils/supabase/server";
 import Link from "next/link";
 
 export default async function AdminDashboardPage() {
@@ -36,38 +36,28 @@ export default async function AdminDashboardPage() {
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <div className="bg-white rounded-lg border border-gray-200 p-5 space-y-2">
           <p className="text-sm text-gray-700">Active Staff</p>
-          <p className="text-3xl font-bold">{staffCount ?? "â€”"}</p>
-          <Link
-            href="/admin/staff"
-            className="text-sm text-[#E5003B] hover:underline"
-          >
-            Manage staff â†’
+          <p className="text-3xl font-bold">{staffCount ?? "—"}</p>
+          <Link href="/admin/staff" className="text-sm text-[#E5003B] hover:underline">
+            Manage staff &rarr;
           </Link>
         </div>
 
         <div className="bg-white rounded-lg border border-gray-200 p-5 space-y-2">
           <p className="text-sm text-gray-700">Pending Time Off</p>
-          <p className="text-3xl font-bold">{pendingTimeOff ?? "â€”"}</p>
-          <Link
-            href="/admin/time-off"
-            className="text-sm text-[#E5003B] hover:underline"
-          >
-            Review requests â†’
+          <p className="text-3xl font-bold">{pendingTimeOff ?? "—"}</p>
+          <Link href="/admin/time-off" className="text-sm text-[#E5003B] hover:underline">
+            Review requests &rarr;
           </Link>
         </div>
 
         <div className="bg-white rounded-lg border border-gray-200 p-5 space-y-2">
           <p className="text-sm text-gray-700">Next Schedule</p>
-          <p className="text-3xl font-bold">â€”</p>
-          <Link
-            href="/admin/schedule"
-            className="text-sm text-[#E5003B] hover:underline"
-          >
-            Build schedule â†’
+          <p className="text-3xl font-bold">—</p>
+          <Link href="/admin/schedule" className="text-sm text-[#E5003B] hover:underline">
+            Build schedule &rarr;
           </Link>
         </div>
       </div>
     </div>
   );
 }
-
