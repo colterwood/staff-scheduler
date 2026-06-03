@@ -16,9 +16,16 @@ export default async function ProfilePage() {
 
   const { data: profile } = await supabase
     .from("staff_profiles")
-    .select("full_name, email, phone, notify_email, notify_sms")
+    .select("id, full_name, email, phone, notify_email, notify_sms")
     .eq("user_id", user!.id)
     .single();
+
+  const { data: weeklyAvailability } = profile
+    ? await supabase
+        .from("weekly_availability")
+        .select("day_of_week, available_from, available_to")
+        .eq("staff_id", profile.id)
+    : { data: [] };
 
   return (
     <div className="space-y-6">
@@ -31,6 +38,7 @@ export default async function ProfilePage() {
           profile?.notify_email ?? true,
           profile?.notify_sms ?? false
         )}
+        weeklyAvailability={weeklyAvailability ?? []}
       />
     </div>
   );
