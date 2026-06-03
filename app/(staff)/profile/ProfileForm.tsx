@@ -14,6 +14,7 @@ interface Props {
 }
 
 export default function ProfileForm({ fullName, email, phone: initialPhone, notificationPref: initialNotif }: Props) {
+  const [emailVal, setEmailVal] = useState(email);
   const [phoneVal, setPhoneVal] = useState(initialPhone ?? "");
   const [notification, setNotification] = useState<NotificationPref>(initialNotif);
   const [preferredDays, setPreferredDays] = useState<string[]>([]);
@@ -47,7 +48,12 @@ export default function ProfileForm({ fullName, email, phone: initialPhone, noti
 
         <div className="flex flex-col sm:flex-row sm:items-center sm:gap-4">
           <label className="text-lg font-semibold w-32">Email</label>
-          <div className="text-gray-800">{email}</div>
+          <input
+            type="email"
+            className="px-4 py-2 border rounded w-[260px] focus:outline-none focus:ring-2 focus:ring-blue-500"
+            value={emailVal}
+            onChange={(e) => setEmailVal(e.target.value)}
+          />
         </div>
 
         <div className="flex flex-col sm:flex-row sm:items-center sm:gap-4">
