@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { createClient } from "@/app/utils/supabase/client";
 
 const links = [
   { href: "/admin/dashboard", label: "Dashboard" },
@@ -13,9 +14,16 @@ const links = [
 
 export default function AdminNavBar() {
   const pathname = usePathname();
+  const router = useRouter();
+
+  async function handleLogout() {
+    const supabase = createClient();
+    await supabase.auth.signOut();
+    router.push("/login");
+  }
 
   return (
-    <nav className="flex gap-6 text-sm font-medium">
+    <nav className="flex items-center gap-6 text-sm font-medium">
       {links.map((link) => (
         <Link
           key={link.href}
@@ -29,6 +37,12 @@ export default function AdminNavBar() {
           {link.label}
         </Link>
       ))}
+      <button
+        onClick={handleLogout}
+        className="ml-auto text-gray-400 hover:text-gray-700"
+      >
+        Log out
+      </button>
     </nav>
   );
 }
