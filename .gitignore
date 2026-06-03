@@ -36,6 +36,10 @@ yarn-error.log*
 # vercel
 .vercel
 
+# local files that shouldn't be tracked
+supabase/supabase_pass.txt
+anaconda_projects/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
